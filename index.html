@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <div id="app">
-      <!-- <h1>Despair paint</h1> -->
-      <div>
+    <div id="app" class="container">
+      <canvas id="canvas"></canvas>
+      <div class="controls">
+        <h2>Controls</h2>
         <button id="next">Next</button>
         <button id="play">Play</button>
-
-        <div>
-          <label for="dead">Dead</label>
-          <input type="radio" id="dead" value="dead" name="state" />
-        </div>
-        <div>
-          <label for="alive">Alive</label>
-          <input checked type="radio" id="alive" value="alive" name="state" />
+        <button id="clear">Clear</button>
+        <div class="radio-group">
+          <h3>Brush color</h3>
+          <div>
+            <label for="dead">Dead</label>
+            <input type="radio" id="dead" value="dead" name="state" />
+          </div>
+          <div>
+            <label for="alive">Alive</label>
+            <input checked type="radio" id="alive" value="alive" name="state" />
+          </div>
         </div>
       </div>
-      <canvas id="canvas"></canvas>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

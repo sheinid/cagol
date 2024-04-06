@@ -1,4 +1,4 @@
-const COLS = 32;
+const COLS = 64;
 const ROWS = COLS;
 
 type State = number;
@@ -21,8 +21,8 @@ if (canvas === null) {
   throw new Error(`Canvas not found ${canvasId}`);
 }
 
-const width = 600;
-const height = 600;
+const width = 800;
+const height = 800;
 
 const CELL_WIDTH = width / COLS;
 const CELL_HEIGHT = height / ROWS;
@@ -45,6 +45,12 @@ const playId = "play";
 const play = document.getElementById(playId) as HTMLButtonElement;
 if (play == null) {
   throw new Error(`Could not get play button ${playId}`);
+}
+
+const clearId = "clear";
+const clear = document.getElementById(clearId) as HTMLButtonElement;
+if (clear == null) {
+  throw new Error(`Could not get clear button ${clearId}`);
 }
 
 let currentBoard = initializeBoard();
@@ -129,6 +135,16 @@ function computeNextBoard(states: number, current: Board, next: Board) {
   }
 }
 
+function clearBoard(ctx: CanvasRenderingContext2D, board: Board) {
+  ctx.fillStyle = "#323232";
+
+  for (let i = 0; i < ROWS; i++) {
+    for (let j = 0; j < COLS; j++) {
+      board[i][j] = 0;
+    }
+  }
+}
+
 function update(ctx: CanvasRenderingContext2D, board: Board) {
   ctx.fillStyle = "#323232";
   ctx.fillRect(0, 0, width, height);
@@ -200,5 +216,10 @@ play.addEventListener("click", () => {
 });
 
 play.textContent = interval == null ? "Play" : "Pause";
+
+clear.addEventListener("click", () => {
+  clearBoard(ctx, currentBoard);
+  update(ctx, currentBoard);
+});
 
 update(ctx, currentBoard);
