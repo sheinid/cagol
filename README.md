@@ -1,11 +1,11 @@
 # How to run
 
-```
-// install deps
-bun install
+In your terminal:
 
-// run the app
-bun dev
+```sh
+bun install         # intall dependencies
+
+bun dev             # run the application
 ```
 
 Then you can open the application at `http://localhost:5173`
