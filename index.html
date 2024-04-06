@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Despair</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- <h1>Despair paint</h1> -->
+      <div>
+        <button id="next">Next</button>
+        <button id="play">Play</button>
+
+        <div>
+          <label for="dead">Dead</label>
+          <input type="radio" id="dead" value="dead" name="state" />
+        </div>
+        <div>
+          <label for="alive">Alive</label>
+          <input checked type="radio" id="alive" value="alive" name="state" />
+        </div>
+      </div>
+      <canvas id="canvas"></canvas>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
